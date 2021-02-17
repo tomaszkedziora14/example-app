@@ -3,12 +3,9 @@
 require('./bootstrap');
 
 import Vue from 'vue'
-
-// import  App from './componets/App'
-
+import List from '.js/components/list';
 
 Vue.config.productionTip = false
-import List from '.js/components/list';
 
 console.log(2344);
 

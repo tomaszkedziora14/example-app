@@ -1842,16 +1842,15 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module '.js/components/list'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
- // import  App from './componets/App'
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.config.productionTip = false;
 
+vue__WEBPACK_IMPORTED_MODULE_1__.default.config.productionTip = false;
 console.log(2344);
-var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   el: '#app',
   components: {
     App: App
