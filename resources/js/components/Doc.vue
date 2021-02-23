@@ -37,6 +37,7 @@ created() {
     },
     generatePDF(){
       const doc = { body: this.value};
+      console.log(doc);
       axios.post('/generate-pdf', doc)
         .then(response => 'ok');
     }

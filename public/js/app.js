@@ -1887,6 +1887,7 @@ __webpack_require__.r(__webpack_exports__);
       var doc = {
         body: this.value
       };
+      console.log(doc);
       axios.post('/generate-pdf', doc).then(function (response) {
         return 'ok';
       });

@@ -13,11 +13,9 @@ class PDFController extends Controller
     }
     public function generatePdfDoc(Request $request)
     {
-
-
-//        $pdf = PDF::loadView('pdf.invoice', $request->all());
-//        return $pdf->download('invoice.pdf');
-      return [$request->body];
+        $pdf = PDF::loadView('pdf.invoice', $request->all());
+        return $pdf->download('invoice.pdf');
+        return [$request->all()];
     }
 
 
