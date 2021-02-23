@@ -11,19 +11,6 @@ class InsuranceController extends Controller
     {
        $pathToFile = storage_path('Documents/arkusz.xlsx');
        $data = $arrayHelper->excelToArray($pathToFile);
-
-        // $data[] =[ [
-        //     'title' => 'languageTest',
-        //     'libs' => [
-        //         [
-        //             'name' => 'Brandenburg'
-        //         ],
-        //         [
-        //             'name' => 'Brandenburg'
-        //         ]
-        //     ]]
-        // ];
-
        return $data;
     }
 }
