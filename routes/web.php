@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------

@@ -1854,6 +1854,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -1867,6 +1872,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getDoc();
+    this.generatePDF();
   },
   methods: {
     getDoc: function getDoc() {
@@ -1878,8 +1884,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {});
     },
     generatePDF: function generatePDF() {
-      axios.post('/generate-pdf', this.value).then(function (response) {
-        $('#success').html(response.data.message);
+      var doc = {
+        doc: this.value
+      };
+      axios.post('/generate-pdf', doc).then(function (response) {
+        return 'ok';
       });
     }
   }
@@ -19651,48 +19660,76 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.generatePDF($event)
+        }
+      }
+    },
     [
-      _c("label", { staticClass: "typo__label" }, [_vm._v("Groups")]),
-      _vm._v(" "),
       _c(
-        "multiselect",
-        {
-          attrs: {
-            options: _vm.options,
-            multiple: true,
-            "group-values": "libs",
-            "group-label": "title",
-            "group-select": true,
-            placeholder: "Type to search",
-            "track-by": "name",
-            label: "name"
-          },
-          model: {
-            value: _vm.value,
-            callback: function($$v) {
-              _vm.value = $$v
-            },
-            expression: "value"
-          }
-        },
+        "div",
         [
-          _c("span", { attrs: { slot: "noResult" }, slot: "noResult" }, [
-            _vm._v(
-              "Oops! No elements found. Consider changing the search query."
-            )
+          _c("label", { staticClass: "typo__label" }, [_vm._v("Groups")]),
+          _vm._v(" "),
+          _c(
+            "multiselect",
+            {
+              attrs: {
+                options: _vm.options,
+                multiple: true,
+                "group-values": "libs",
+                "group-label": "title",
+                "group-select": true,
+                placeholder: "Type to search",
+                "track-by": "name",
+                label: "name"
+              },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
+            },
+            [
+              _c("span", { attrs: { slot: "noResult" }, slot: "noResult" }, [
+                _vm._v(
+                  "Oops! No elements found. Consider changing the search query."
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("pre", { staticClass: "language-json" }, [
+            _c("code", [_vm._v(_vm._s(_vm.value))])
           ])
-        ]
+        ],
+        1
       ),
       _vm._v(" "),
-      _c("pre", { staticClass: "language-json" }, [
-        _c("code", [_vm._v(_vm._s(_vm.value))])
-      ])
-    ],
-    1
+      _vm._m(0)
+    ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("input", {
+        staticClass: "button",
+        attrs: { type: "submit", value: "Submit" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
