@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class ExportPdfController extends Controller
 {
   /**
-   * Display multiselect witch data and generate pdf document.
+   * Display multiselect form witch data and generate pdf document.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Helper\ArrayHelper $arrayHelper
