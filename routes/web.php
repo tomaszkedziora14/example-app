@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExportPdfController;
-
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/doc', [ExportPdfController::class, 'index']);
+
+
+Route::get('file-upload', [ FileUploadController::class, 'fileUpload' ])->name('file.upload');
+Route::post('file-upload', [ FileUploadController::class, 'fileUploadPost' ])->name('file.upload.post');

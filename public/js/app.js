@@ -24423,8 +24423,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("button", { on: { click: _vm.exportPDF } }, [_vm._v("Export PDF")]),
-      _vm._v(" "),
       _c("label", { staticClass: "typo__label" }, [_vm._v("Groups")]),
       _vm._v(" "),
       _c(
@@ -24463,7 +24461,9 @@ var render = function() {
       _vm._v(" "),
       _c("pre", { staticClass: "language-json" }, [
         _c("code", [_vm._v(_vm._s(_vm.value))])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.exportPDF } }, [_vm._v("Export PDF")])
     ],
     1
   )
