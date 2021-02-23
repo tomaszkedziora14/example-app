@@ -15,7 +15,6 @@ class PDFController extends Controller
     {
         $pdf = PDF::loadView('pdf.invoice', $request->all());
         return $pdf->download('invoice.pdf');
-        return [$request->all()];
     }
 
 
