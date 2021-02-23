@@ -7,10 +7,23 @@ use App\Helper\ArrayHelper;
 
 class InsuranceController extends Controller
 {
-    public function index(ArrayHelper $arrayHelper)
+    public function index(Request $request, ArrayHelper $arrayHelper)
     {
-        $pathToFile = storage_path('Documents/arkusz.xlsx');
-        $data = $arrayHelper->ExcelToArray($pathToFile);
-        return \request()->json($data);
+       $pathToFile = storage_path('Documents/arkusz.xlsx');
+       $data = $arrayHelper->excelToArray($pathToFile);
+
+        // $data[] =[ [
+        //     'title' => 'languageTest',
+        //     'libs' => [
+        //         [
+        //             'name' => 'Brandenburg'
+        //         ],
+        //         [
+        //             'name' => 'Brandenburg'
+        //         ]
+        //     ]]
+        // ];
+
+       return $data;
     }
 }

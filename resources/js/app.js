@@ -1,13 +1,16 @@
 
-
 require('./bootstrap');
 
 import Vue from 'vue'
-import List from '.js/components/list';
+import App from './components/List.vue';
+
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+Vue.use(VueAxios, axios);
+
+
 
 Vue.config.productionTip = false
-
-console.log(2344);
 
 const app = new Vue({
     el: '#app',

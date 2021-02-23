@@ -6,10 +6,31 @@ use Excel;
 
 class ArrayHelper
 {
+    private $headers;
+
     private $combinedRows = [];
 
-    public function ExcelToArray($filePath)
+    private $repeatableSameKey = [];
+
+    private $items = [];
+
+    public function excelToArray($filePath)
     {
+
+      // $data[] = [
+      //     'title' => 'DPO_Filter:Anlass',
+      //     'libs' => [
+      //         [
+      //             'name' => 'Beitragsänderung'
+      //         ],
+      //         [
+      //             'name' => 'Beitragsänderung'
+      //         ]
+      //     ]
+      // ];
+
+
+
         $arrayXlsx = Excel::toArray([], $filePath);
 
         $headers = $arrayXlsx[0][0];
@@ -23,9 +44,12 @@ class ArrayHelper
 
         $count = count($headers);
         for($i=0; $i<$count; $i++){
-            $this->merge($xlsxArr, $i);
+            $this->mergeRowsAndAddNewKeys($xlsxArr, $i, $headers);
         }
-        return array_combine($headers,$this->combinedRows);
+
+      //  dd($this->combinedRows);
+
+         return $this->combinedRows;
     }
 
     private function merge($data, $k)
@@ -35,5 +59,29 @@ class ArrayHelper
             $array[] = $data[$key][$k];
         }
         $this->combinedRows[] = $array;
+    }
+
+    private function mergeRowsAndAddNewKeys($data, $k, $headers)
+    {
+        $array = [];
+        foreach($data as $key=>$arr){
+          $array['title'] = $headers[$k];
+          $array['libs'][]['name'] = $data[$key][$k];
+        }
+
+
+
+      //  dd($array);
+        $this->combinedRows[] = $array;
+    }
+
+    public function createRepitableKey()
+    {
+      $array = [];
+      $keyName = 'name';
+      for($i=0; $i<5; $i++){
+        $array[] = $keyName.$i;
+      }
+      return  $array;
     }
 }
