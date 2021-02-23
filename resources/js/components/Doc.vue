@@ -40,7 +40,7 @@ created() {
          {title: "Name", dataKey: "name"}
        ];
        var doc = new jsPDF('p', 'pt');
-       doc.text('To Do List', 40, 40);
+       doc.text('Insurance document', 40, 40);
        doc.autoTable(columns, vm.value, {
          margin: {top: 60},
        });
