@@ -34,7 +34,7 @@ created() {
       }).catch((err) => {})
     },
     exportPDF() {
-    var vm = this
+      var vm = this
        var columns = [
          {title: "Title", dataKey: "title"},
          {title: "Name", dataKey: "name"}
@@ -44,7 +44,7 @@ created() {
        doc.autoTable(columns, vm.value, {
          margin: {top: 60},
        });
-       doc.save('todos.pdf');
+       doc.save('insurance.pdf');
        }
   },
 }
