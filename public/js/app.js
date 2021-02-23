@@ -1858,6 +1858,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1873,7 +1876,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getDoc();
-    this.exportPDF();
+    this.checData();
   },
   methods: {
     getDoc: function getDoc() {
@@ -1901,6 +1904,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       doc.save('insurance.pdf');
+    },
+    checData: function checData() {
+      console.log(this.value);
     }
   }
 });
@@ -24420,7 +24426,11 @@ var render = function() {
             "group-select": true,
             placeholder: "Type to search",
             "track-by": "name",
-            label: "name"
+            label: "name",
+            "preselect-first": true,
+            "close-on-select": false,
+            "clear-on-select": false,
+            "preserve-search": true
           },
           model: {
             value: _vm.value,

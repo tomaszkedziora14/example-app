@@ -2,7 +2,10 @@
     <div>
     <button @click="exportPDF">Export PDF</button>
       <label class="typo__label">Groups</label>
-          <multiselect v-model="value" :options="options" :multiple="true" group-values="libs" group-label="title" :group-select="true" placeholder="Type to search" track-by="name" label="name"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
+          <multiselect v-model="value" :options="options" :multiple="true" group-values="libs" group-label="title" :group-select="true" placeholder="Type to search" track-by="name" label="name"  :preselect-first="true"
+:close-on-select="false"
+:clear-on-select="false"
+:preserve-search="true" ><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
       <pre class="language-json"><code>{{ value  }}</code></pre>
     </div>
 </template>
@@ -24,7 +27,8 @@ data () {
 },
 created() {
   this.getDoc();
-  this.exportPDF();
+
+  this.checData();
 },
   methods: {
     getDoc() {
@@ -45,7 +49,11 @@ created() {
          margin: {top: 60},
        });
        doc.save('insurance.pdf');
-       }
+    },
+    checData()
+    {
+      console.log(this.value);
+    }
   },
 }
 </script>
