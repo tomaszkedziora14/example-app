@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Helper\ArrayHelper;
 
-class InsuranceController extends Controller
+class ExportPdfController extends Controller
 {
     public function index(Request $request, ArrayHelper $arrayHelper)
     {

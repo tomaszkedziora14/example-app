@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InsuranceController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ExportPdfController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/doc', [InsuranceController::class, 'index']);
+Route::get('/doc', [ExportPdfController::class, 'index']);

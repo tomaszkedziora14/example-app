@@ -20,18 +20,17 @@ class ArrayHelper
 
         $count = count($headers);
         for($i=0; $i<$count; $i++){
-            $this->mergeRowsAndAddNewKeys($xlsxArr, $i, $headers);
+            $this->mergeRowsAndAddKeys($xlsxArr, $i, $headers);
         }
         return $this->combinedRows;
     }
 
-    private function mergeRowsAndAddNewKeys($data, $k, $headers)
+    private function mergeRowsAndAddKeys($data, $k, $headers)
     {
         $array = [];
         foreach($data as $key=>$arr){
           $array['title'] = $headers[$k];
           $array['libs'][]['name'] = $data[$key][$k];
-          $array['libs'][]['title'] = $headers[$k];
         }
         $this->combinedRows[] = $array;
     }
