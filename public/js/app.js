@@ -1867,7 +1867,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getDoc();
-    this.generatePDF();
   },
   methods: {
     getDoc: function getDoc() {

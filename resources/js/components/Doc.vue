@@ -21,7 +21,6 @@ data () {
 },
 created() {
   this.getDoc();
-  this.generatePDF();
 },
   methods: {
     getDoc() {
