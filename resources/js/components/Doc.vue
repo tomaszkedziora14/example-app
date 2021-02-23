@@ -21,6 +21,7 @@ data () {
 },
 created() {
   this.getDoc();
+  this.generatePDF();
 },
   methods: {
     getDoc() {
@@ -29,8 +30,15 @@ created() {
         console.log(options);
       }).catch((err) => {
       })
-    }
+    },
+      generatePDF() {
+          axios.post('/generate-pdf',this.value)
+              .then((response)=>{
+                  $('#success').html(response.data.message)
+              })
+      }
   },
+
 }
 </script>
 

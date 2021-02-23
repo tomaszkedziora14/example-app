@@ -2,7 +2,7 @@
 require('./bootstrap');
 
 import Vue from 'vue'
-import App from './components/List.vue';
+import App from './components/Doc.vue';
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
