@@ -1,18 +1,16 @@
 <template>
-  <form @submit.stop.prevent="generatePDF">
     <div>
-    <label class="typo__label">Groups</label>
-        <multiselect v-model="value" :options="options" :multiple="true" group-values="libs" group-label="title" :group-select="true" placeholder="Type to search" track-by="name" label="name"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
-    <pre class="language-json"><code>{{ value  }}</code></pre>
+    <button @click="exportPDF">Export PDF</button>
+      <label class="typo__label">Groups</label>
+          <multiselect v-model="value" :options="options" :multiple="true" group-values="libs" group-label="title" :group-select="true" placeholder="Type to search" track-by="name" label="name"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
+      <pre class="language-json"><code>{{ value  }}</code></pre>
     </div>
-      <p>
-          <input type="submit" value="Submit" class="button">
-      </p>
-      </form>
 </template>
 
 <script>
 import Multiselect from 'vue-multiselect'
+import { jsPDF } from "jspdf";
+import 'jspdf-autotable';
 
 export default {
 components: {
@@ -21,12 +19,12 @@ components: {
 data () {
   return {
     options: [],
-    value: []
+    value: [],
   }
 },
 created() {
   this.getDoc();
-  this.generatePDF();
+  this.exportPDF();
 },
   methods: {
     getDoc() {
@@ -35,12 +33,19 @@ created() {
         console.log(options);
       }).catch((err) => {})
     },
-    generatePDF(){
-      const doc = { body: this.value};
-      console.log(doc);
-      axios.post('/generate-pdf', doc)
-        .then(response => 'ok');
-    }
+    exportPDF() {
+    var vm = this
+       var columns = [
+         {title: "Title", dataKey: "title"},
+         {title: "Name", dataKey: "name"}
+       ];
+       var doc = new jsPDF('p', 'pt');
+       doc.text('To Do List', 40, 40);
+       doc.autoTable(columns, vm.value, {
+         margin: {top: 60},
+       });
+       doc.save('todos.pdf');
+       }
   },
 }
 </script>
