@@ -18,7 +18,7 @@
           >
           <span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
       <pre class="language-json"><code>{{ value  }}</code></pre>
-        <button @click="exportPDF">Export PDF</button>
+      <button @click="exportPDF">Export PDF</button>
     </div>
 </template>
 
@@ -37,6 +37,12 @@ data () {
     value: [],
   }
 },
+
+computed: {
+    valueIds() {
+      return this.value.map(v => v.id);
+    }
+  },
 created() {
   this.getDoc();
 

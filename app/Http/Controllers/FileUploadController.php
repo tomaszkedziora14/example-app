@@ -7,18 +7,19 @@ use Illuminate\Http\Request;
 class FileUploadController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display form for upload.
      *
      * @return \Illuminate\Http\Response
      */
     public function fileUpload()
     {
-        return view('fileUpload');
+        return view('upload_form.form');
     }
 
     /**
-     * Display a listing of the resource.
+     * Upload file.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fileUploadPost(Request $request)
@@ -29,8 +30,7 @@ class FileUploadController extends Controller
 
         $fileName = time().'.'.$request->file->extension();
 
-        $request->file->move(public_path('file'), $fileName);
-
+        $request->file->move(storage_path('Documents'), $fileName);
 
         return back()
             ->with('success','You have successfully file uplaod.')

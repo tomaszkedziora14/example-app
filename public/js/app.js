@@ -1886,6 +1886,13 @@ __webpack_require__.r(__webpack_exports__);
       value: []
     };
   },
+  computed: {
+    valueIds: function valueIds() {
+      return this.value.map(function (v) {
+        return v.id;
+      });
+    }
+  },
   created: function created() {
     this.getDoc();
     this.checData();

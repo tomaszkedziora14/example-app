@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/doc', [ExportPdfController::class, 'index']);
+Route::get('doc', [ExportPdfController::class, 'index']);
 
 
-Route::get('file-upload', [ FileUploadController::class, 'fileUpload' ])->name('file.upload');
-Route::post('file-upload', [ FileUploadController::class, 'fileUploadPost' ])->name('file.upload.post');
+Route::get('file-upload', [ FileUploadController::class, 'fileUpload' ]);
+Route::post('file-upload', [ FileUploadController::class, 'fileUploadPost' ]);
