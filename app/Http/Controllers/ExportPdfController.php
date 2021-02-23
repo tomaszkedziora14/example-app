@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class ExportPdfController extends Controller
 {
   /**
-   * Display multiselect form witch data and generate pdf document.
+   * Return converted data to vue js multiselect form.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Helper\ArrayHelper $arrayHelper
