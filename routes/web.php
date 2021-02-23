@@ -20,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/doc', [InsuranceController::class, 'index']);
+Route::get('/generate-pdf', [PDFController::class, 'pdf']);
 Route::post('/generate-pdf', [PDFController::class, 'generatePdfDoc']);

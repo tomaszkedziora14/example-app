@@ -5,9 +5,9 @@
         <multiselect v-model="value" :options="options" :multiple="true" group-values="libs" group-label="title" :group-select="true" placeholder="Type to search" track-by="name" label="name"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
     <pre class="language-json"><code>{{ value  }}</code></pre>
     </div>
-    <p>
-            <input type="submit" value="Submit" class="button">
-        </p>
+      <p>
+          <input type="submit" value="Submit" class="button">
+      </p>
       </form>
 </template>
 
@@ -36,7 +36,7 @@ created() {
       }).catch((err) => {})
     },
     generatePDF(){
-      const doc = { doc: this.value};
+      const doc = { body: this.value};
       axios.post('/generate-pdf', doc)
         .then(response => 'ok');
     }
