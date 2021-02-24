@@ -1919,13 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
         doc.save('insurance.pdf');
       }
     },
-    checData: function checData() {
-      readdir("storage/Documents/arkusz.xlsx").then(function (files) {
-        console.log("files are", files);
-      }, function (error) {
-        console.error("something exploded", error);
-      });
-    }
+    checData: function checData() {}
   }
 });
 

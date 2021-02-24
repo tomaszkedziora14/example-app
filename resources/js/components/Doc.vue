@@ -64,17 +64,9 @@ exportPDF() {
         doc.save('insurance.pdf');
     }
   },
-  checData()
-    {
-    readdir("storage/Documents/arkusz.xlsx").then(
-function(files) {
-console.log("files are", files);
+checData()
+{
 },
-function(error) {
-console.error("something exploded", error);
-}
-);
-    },
   },
 }
 </script>
