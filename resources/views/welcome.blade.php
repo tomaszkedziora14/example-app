@@ -6,8 +6,6 @@
     <meta name="csrf-token" value="{{ csrf_token() }}"/>
     <title>Laravel Vue JS CRUD Example  - Tutsmake</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
-
-
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
@@ -15,10 +13,9 @@
     </style>
 </head>
 <body>
-  
-<div id="app">
-    <app></app>
-</div>
+  <div id="app">
+      <app></app>
+  </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 </html>

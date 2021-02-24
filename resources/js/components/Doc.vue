@@ -37,41 +37,37 @@ data () {
     value: [],
   }
 },
-
-computed: {
-    valueIds() {
-      return this.value.map(v => v.id);
-    }
-  },
 created() {
   this.getDoc();
-
   this.checData();
 },
-  methods: {
-    getDoc() {
-      axios.get('/doc').then((response) => {
-        this.options = response.data;
-        console.log(options);
-      }).catch((err) => {})
-    },
-    exportPDF() {
-      var vm = this
-       var columns = [
-         {title: "Title", dataKey: "title"},
+methods: {
+  getDoc() {
+    axios.get('/doc').then((response) => {
+      this.options = response.data;
+      console.log(options);
+    }).catch((err) => {})
+  },
+exportPDF() {
+    var columns = [
+        {title: "Title", dataKey: "title"},
          {title: "Name", dataKey: "name"}
-       ];
-       var doc = new jsPDF('p', 'pt');
-       doc.text('Insurance document', 40, 40);
-       doc.autoTable(columns, vm.value, {
+      ];
+
+    var doc = new jsPDF('p', 'pt');
+    doc.text('Insurance document', 40, 40);
+    doc.autoTable(columns, this.value, {
          margin: {top: 60},
-       });
-       doc.save('insurance.pdf');
-    },
-    checData()
-    {
-      console.log(this.value);
+    });
+
+    if(this.value.length){
+        doc.save('insurance.pdf');
     }
+  },
+  checData()
+    {
+
+    },
   },
 }
 </script>

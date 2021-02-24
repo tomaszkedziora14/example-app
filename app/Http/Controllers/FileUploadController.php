@@ -28,7 +28,7 @@ class FileUploadController extends Controller
             'file' => 'required|file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
         ]);
 
-        $fileName = time().'.'.$request->file->extension();
+        $fileName = 'doc.'.$request->file->extension();
 
         $request->file->move(storage_path('Documents'), $fileName);
 

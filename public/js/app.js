@@ -1886,13 +1886,6 @@ __webpack_require__.r(__webpack_exports__);
       value: []
     };
   },
-  computed: {
-    valueIds: function valueIds() {
-      return this.value.map(function (v) {
-        return v.id;
-      });
-    }
-  },
   created: function created() {
     this.getDoc();
     this.checData();
@@ -1907,7 +1900,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {});
     },
     exportPDF: function exportPDF() {
-      var vm = this;
       var columns = [{
         title: "Title",
         dataKey: "title"
@@ -1917,16 +1909,17 @@ __webpack_require__.r(__webpack_exports__);
       }];
       var doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__.jsPDF('p', 'pt');
       doc.text('Insurance document', 40, 40);
-      doc.autoTable(columns, vm.value, {
+      doc.autoTable(columns, this.value, {
         margin: {
           top: 60
         }
       });
-      doc.save('insurance.pdf');
+
+      if (this.value.length) {
+        doc.save('insurance.pdf');
+      }
     },
-    checData: function checData() {
-      console.log(this.value);
-    }
+    checData: function checData() {}
   }
 });
 
