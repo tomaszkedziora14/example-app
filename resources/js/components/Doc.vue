@@ -33,7 +33,27 @@ components: {
 },
 data () {
   return {
-    options: [],
+    options: [     {
+          title: 'Javascript',
+          libs: [
+            { name: 'Vue.js', title: 'Front-end' },
+            { name: 'Adonis', title: 'Backend' }
+          ]
+        },
+        {
+          titlee: 'Ruby',
+          libs: [
+            { name: 'Rails', title: 'Backend' },
+            { name: 'Sinatra', title: 'Backend' }
+          ]
+        },
+        {
+          title: 'Other',
+          libs: [
+            { name: 'Laravel', title: 'Backend' },
+            { name: 'Phoenix', title: 'Backend' }
+          ]
+        }],
     value: [],
   }
 },
@@ -44,7 +64,7 @@ created() {
 methods: {
   getDoc() {
     axios.get('/doc').then((response) => {
-      this.options = response.data;
+     this.options = response.data;
       console.log(options);
     }).catch((err) => {})
   },

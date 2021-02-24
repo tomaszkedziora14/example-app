@@ -31,7 +31,7 @@ class ArrayHelper
         foreach($data as $key=>$arr){
           $array['title'] = $headers[$k];
           $array['libs'][]['name'] = $data[$key][$k];
-          $array['libs'][]['title'] = $headers[$k];
+          $array['libs'][$key]['title'] = $headers[$k];
         }
         $this->combinedRows[] = $array;
     }
