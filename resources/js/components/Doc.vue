@@ -33,27 +33,7 @@ components: {
 },
 data () {
   return {
-    options: [     {
-          title: 'Javascript',
-          libs: [
-            { name: 'Vue.js', title: 'Front-end' },
-            { name: 'Adonis', title: 'Backend' }
-          ]
-        },
-        {
-          titlee: 'Ruby',
-          libs: [
-            { name: 'Rails', title: 'Backend' },
-            { name: 'Sinatra', title: 'Backend' }
-          ]
-        },
-        {
-          title: 'Other',
-          libs: [
-            { name: 'Laravel', title: 'Backend' },
-            { name: 'Phoenix', title: 'Backend' }
-          ]
-        }],
+    options: [],
     value: [],
   }
 },
@@ -86,7 +66,14 @@ exportPDF() {
   },
   checData()
     {
-
+    readdir("storage/Documents/arkusz.xlsx").then(
+function(files) {
+console.log("files are", files);
+},
+function(error) {
+console.error("something exploded", error);
+}
+);
     },
   },
 }

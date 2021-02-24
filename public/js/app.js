@@ -1882,34 +1882,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      options: [{
-        title: 'Javascript',
-        libs: [{
-          name: 'Vue.js',
-          title: 'Front-end'
-        }, {
-          name: 'Adonis',
-          title: 'Backend'
-        }]
-      }, {
-        titlee: 'Ruby',
-        libs: [{
-          name: 'Rails',
-          title: 'Backend'
-        }, {
-          name: 'Sinatra',
-          title: 'Backend'
-        }]
-      }, {
-        title: 'Other',
-        libs: [{
-          name: 'Laravel',
-          title: 'Backend'
-        }, {
-          name: 'Phoenix',
-          title: 'Backend'
-        }]
-      }],
+      options: [],
       value: []
     };
   },
@@ -1946,7 +1919,13 @@ __webpack_require__.r(__webpack_exports__);
         doc.save('insurance.pdf');
       }
     },
-    checData: function checData() {}
+    checData: function checData() {
+      readdir("storage/Documents/arkusz.xlsx").then(function (files) {
+        console.log("files are", files);
+      }, function (error) {
+        console.error("something exploded", error);
+      });
+    }
   }
 });
 
